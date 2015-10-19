@@ -43,7 +43,7 @@
     # Homepage with description of the project for the link in the page header
     conf:projectHomepage <http://dbpedia.org>;
     # The Pubby root, where the webapp is running inside the servlet container.
-    conf:webBase <http://localhost:8080/>;
+    conf:webBase <http://localhost/>;
     # URL of an RDF file whose prefix mapping is to be used by the
     # server; defaults to <>, which is *this* file.
     conf:usePrefixesFrom <>;
