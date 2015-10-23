@@ -16,38 +16,50 @@ ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 
 RUN mkdir /LinkedDataServer
 
+# Copy entrypoint script for calling the rest
+
+COPY ../entrypoint.sh /LinkedDataServer/
+
 # Copy GRefine
 
-COPY ../google-refine-2.5 /LinkedDataServer
+COPY ../google-refine-2.5 /LinkedDataServer/google-refine-2.5
+
+# GRefine port 
+
+EXPOSE 3333
+
+# Copy blazegraph
+
+COPY ../blazegraph /LinkedDataServer/blazegraph
+
+# Blazegraph port
+
+EXPOSE 9999
+
+# Copy pubby
+
+COPY ../jetty /LinkedDataServer/jetty
+
+# Pubby port
+
+EXPOSE 8080
+
+# Run everything
+
+ENTRYPOINT ["/LinkedDataServer/entrypoint.sh"]
 
 
-# Blazegraph
-
-# ???
-# EXPOSE 9999
-
-# Pubby
-
-# ???
-# EXPOSE 8080
 
 
 
 
 
-
-
-# Entrypoint with arguments for: refine, triple store, silk, easyrdf, ...
+# Entrypoint with arguments for: refine, blazegraph, silk, ...
 
 # Get -Xmx4g argument from user?
 
-# java -server -Xmx4g -jar bigdata-bundled.jar
+# add web page apache with links
 
-# Putty 
-
-# java -jar start.jar jetty.port=8080
-
-# easyrdf http://www.easyrdf.org/docs/getting-started
 
 
 

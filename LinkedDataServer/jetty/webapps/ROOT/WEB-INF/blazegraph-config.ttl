@@ -39,11 +39,11 @@
 # Server configuration section
 <> a conf:Configuration;
     # Project name for display in page titles
-    conf:projectName "DBpedia.org";
+    conf:projectName "Gipuzkoa Irekia";
     # Homepage with description of the project for the link in the page header
-    conf:projectHomepage <http://dbpedia.org>;
+    conf:projectHomepage <http://gipuzkoairekia.eus>;
     # The Pubby root, where the webapp is running inside the servlet container.
-    conf:webBase <http://localhost/>;
+    conf:webBase <http://localhost:8080/>;
     # URL of an RDF file whose prefix mapping is to be used by the
     # server; defaults to <>, which is *this* file.
     conf:usePrefixesFrom <>;
@@ -52,7 +52,7 @@
     conf:defaultLanguage "en";
     # When the homepage of the server is accessed, this resource will
     # be shown.
-    conf:indexResource <http://dbpedia.org/resource/Wikipedia>;
+    conf:indexResource <http://gipuzkoairekia.eus>;
 
 # Dataset configuration section #1 (for DBpedia resources)
 #
@@ -64,7 +64,7 @@
         # Default graph name to query (not necessary for most endpoints)
 #         conf:sparqlDefaultGraph <http://dbpedia.org>;
         # Common URI prefix of all resource URIs in the SPARQL dataset
-        conf:datasetBase <http://blazegraph.com/>;
+        conf:datasetBase <http://data.gipuzkoairekia.eus/>;
         # Will be appended to the conf:webBase to form the public
         # resource URIs; if not present, defaults to ""
 #         conf:webResourcePrefix "resource/";
