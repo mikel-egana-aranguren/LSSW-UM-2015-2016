@@ -22,7 +22,7 @@ COPY entrypoint.sh /LinkedDataServer/
 
 # Copy GRefine
 
-COPY ../google-refine-2.5 /LinkedDataServer/google-refine-2.5
+COPY google-refine-2.5 /LinkedDataServer/google-refine-2.5
 
 # GRefine port 
 
@@ -30,7 +30,7 @@ EXPOSE 3333
 
 # Copy blazegraph
 
-COPY ../blazegraph /LinkedDataServer/blazegraph
+COPY blazegraph /LinkedDataServer/blazegraph
 
 # Blazegraph port
 
@@ -38,7 +38,7 @@ EXPOSE 9999
 
 # Copy pubby
 
-COPY ../jetty /LinkedDataServer/jetty
+COPY jetty /LinkedDataServer/jetty
 
 # Pubby port
 
@@ -51,6 +51,7 @@ ENTRYPOINT ["/LinkedDataServer/entrypoint.sh"]
 
 
 
+# TODO: bridge (see SADI-Docker-Galaxy) --net="bridge"
 
 # TODO: configure Pubby URI base with sed
 
