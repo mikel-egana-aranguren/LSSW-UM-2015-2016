@@ -18,7 +18,7 @@ RUN mkdir /LinkedDataServer
 
 # Copy entrypoint script for calling the rest
 
-COPY ../entrypoint.sh /LinkedDataServer/
+COPY entrypoint.sh /LinkedDataServer/
 
 # Copy GRefine
 
@@ -52,13 +52,13 @@ ENTRYPOINT ["/LinkedDataServer/entrypoint.sh"]
 
 
 
+# TODO: configure Pubby URI base with sed
 
+# TODO: Entrypoint with arguments for: refine, blazegraph, silk, ...
 
-# Entrypoint with arguments for: refine, blazegraph, silk, ...
+# TODO: Get -Xmx4g argument from user for blazegraph?
 
-# Get -Xmx4g argument from user?
-
-# add web page apache with links
+# TODO: add web page apache with links
 
 
 

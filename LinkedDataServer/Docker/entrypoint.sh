@@ -1,5 +1,11 @@
-# This should live in /LinkedDataServer/
+#!/bin/sh
 
-/google-refine-2.5/.refine
-java -server -Xmx4g -jar blazegraph/bigdata-bundled.jar
-java -jar jetty/start.jar jetty.port=8080
+# This script should live in /LinkedDataServer/
+
+
+
+nohup google-refine-2.5/./refine &
+nohup java -server -Xmx4g -jar blazegraph/bigdata-bundled.jar &
+
+cd jetty
+nohup java -jar start.jar jetty.port=8080 &
