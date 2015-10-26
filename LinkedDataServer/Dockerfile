@@ -5,61 +5,57 @@ MAINTAINER Mikel Egaña Aranguren <mikel.egana.aranguren@gmail.com>
 
 # Copied from https://github.com/dockerfile/java/blob/master/openjdk-7-jre/Dockerfile
 
-# Install Java, php
-RUN \
-  apt-get update && \
-  apt-get install -y openjdk-7-jre && \
-  rm -rf /var/lib/apt/lists/*
+# Install necessary software
+RUN apt-get update && apt-get install -y openjdk-7-jre wget curl
+
+#   rm -rf /var/lib/apt/lists/*
   
 # Define commonly used JAVA_HOME variable
-ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+# ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 
 RUN mkdir /LinkedDataServer
 
-# Copy entrypoint script for calling the rest
-
-COPY entrypoint.sh /LinkedDataServer/
-
-# Copy GRefine
-
 COPY google-refine-2.5 /LinkedDataServer/google-refine-2.5
-
-# GRefine port 
-
-EXPOSE 3333
-
-# Copy blazegraph
-
 COPY blazegraph /LinkedDataServer/blazegraph
-
-# Blazegraph port
-
-EXPOSE 9999
-
-# Copy pubby
-
 COPY jetty /LinkedDataServer/jetty
 
-# Pubby port
-
+EXPOSE 3333
+EXPOSE 9999
 EXPOSE 8080
 
-# Run everything
+WORKDIR /LinkedDataServer
+CMD java -server -jar blazegraph/bigdata-bundled.jar 
+CMD google-refine-2.5/refine
 
-ENTRYPOINT ["/LinkedDataServer/entrypoint.sh"]
+WORKDIR /LinkedDataServer/jetty
+CMD java -jar start.jar jetty.port=8080
 
 
 
 
-# TODO: bridge (see SADI-Docker-Galaxy) --net="bridge"
+
+
+
+
+
+
+
+
+# TODO: bridge (see SADI-Docker-Galaxy) --net=bridge
 
 # TODO: configure Pubby URI base with sed
 
 # TODO: Entrypoint with arguments for: refine, blazegraph, silk, ...
 
-# TODO: Get -Xmx4g argument from user for blazegraph?
+# TODO: Get -Xmx4g argument from user for blazegraph? nohup java -server -Xmx4g -jar blazegraph/bigdata-bundled.jar &
 
-# TODO: add web page apache with links
+# TODO: add web page apache with links in apache2 /var/www/ port 80
+
+# TODO: COPY entrypoint.sh /LinkedDataServer/ 
+# TODO: ENTRYPOINT ["/LinkedDataServer/entrypoint.sh"]
+
+# NOTE: docker run -d -p 9999:9999 -p 8080:8080 -p 3333:3333 mikeleganaaranguren/linked-data-server:0.0.1
+
 
 
 
