@@ -11,6 +11,7 @@
     <gr_ont:binds_to rdf:resource="http://genomic-resources.eu/resource/Prot_B"/> 
     <obo:BFO_0000056 rdf:resource="http://openlifedata.org/go:0001586"/>
     <rdfs:label>Protein A</rdfs:label>
+    <rdfs:comment>A4_HUMAN</rdfs:comment>
     <rdf:type rdf:resource="http://genomic-resources.eu/ontology/Protein"/>
   </rdf:Description>
     
@@ -31,7 +32,7 @@
     <gr_ont:part_of rdf:resource="http://genomic-resources.eu/resource/Nucleolus"/>
     <rdf:type rdf:resource="http://genomic-resources.eu/ontology/Gene"/>
   </rdf:Description>
-  
+   
   <rdf:Description rdf:about="http://genomic-resources.eu/resource/Nucleus">
     <rdf:type rdf:resource="http://genomic-resources.eu/ontology/Organelle"/>
   </rdf:Description>
