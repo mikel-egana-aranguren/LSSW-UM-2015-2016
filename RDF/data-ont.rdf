@@ -6,6 +6,12 @@
   xmlns:obo="http://purl.obolibrary.org/obo/"
   xmlns:gr_ont="http://genomic-resources.eu/ontology/"
   xmlns:gr_data="http://genomic-resources.eu/resource/">
+  
+  <owl:ObjectProperty rdf:about="http://genomic-resources.eu/ontology/binds_to"/>
+  <owl:ObjectProperty rdf:about="http://genomic-resources.eu/ontology/codified_by"/>
+  <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000056"/>
+    <owl:ObjectProperty rdf:about="http://genomic-resources.eu/ontology/part_of"/>
+
     
   <rdf:Description rdf:about="http://genomic-resources.eu/resource/Prot_A">
     <gr_ont:binds_to rdf:resource="http://genomic-resources.eu/resource/Prot_B"/> 
@@ -39,6 +45,9 @@
   <rdf:Description rdf:about="http://genomic-resources.eu/resource/Nucleolus">
     <rdf:type rdf:resource="http://genomic-resources.eu/ontology/Organelle"/>
   </rdf:Description>
+  
+  <rdf:Description rdf:about="http://genomic-resources.eu/resource/Nucleolus">
+    <gr_ont:part_of rdf:resource="http://genomic-resources.eu/resource/Nucleus"/>
+  </rdf:Description>
+  
 </rdf:RDF>
-
-
