@@ -1,0 +1,7 @@
+@prefix uniprot: <http://uniprot/ontology/prop/> .
+@prefix go: <http://geneontology/process/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://um.es/resource/Q5SIF0>
+  rdfs:label "Q5SIF0" ;
+  uniprot:participates-in go:ATP-binding .
